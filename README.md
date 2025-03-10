@@ -83,3 +83,77 @@ W_2 = -0.2 - 0.1 \times (-0.096) = -0.2 + 0.0096 = -0.1904
 \[
 W = [0.4048, -0.1904]
 \]
+
+##QN3
+
+## Compute the Final Probability using Sigmoid Activation Function
+
+Given data:
+- Input temperature (\(x\)) = 2°C
+- Learned weight (\(w\)) = 0.5 (influence of temperature on decision)
+- Bias (\(b\)) = 1 (accounts for external factors like time of day or user preferences)
+
+### Step-by-Step Calculation
+
+**1. Compute \( z \):**
+
+
+
+\[ z = wx + b \]
+
+
+
+Substitute the values:
+
+
+
+\[ z = (0.5 \times 2) + 1 \]
+
+
+
+
+\[ z = 1 + 1 = 2 \]
+
+
+
+**2. Apply the Sigmoid Function:**
+
+The formula for the sigmoid function is:
+
+
+
+\[ \sigma(z) = \frac{1}{1 + e^{-z}} \]
+
+
+
+Substitute \( z = 2 \):
+
+
+
+\[ \sigma(2) = \frac{1}{1 + e^{-2}} \]
+
+
+
+**3. Calculate the Final Probability:**
+
+
+
+\[ \sigma(2) \approx \frac{1}{1 + 0.1353} \]
+
+
+
+
+\[ \sigma(2) \approx \frac{1}{1.1353} \]
+
+
+
+
+\[ \sigma(2) \approx 0.8808 \]
+
+
+
+### Final Result
+
+The final probability of the thermostat turning on is approximately **0.8808** (or 88.08%).
+
+**Justification:** The sigmoid activation function converts the linear combination of the input temperature, weight, and bias into a probability value between 0 and 1. In this case, given the input temperature of 2°C, the learned weight of 0.5, and the bias of 1, the model predicts a high probability (approximately 88.08%) of the thermostat turning on.
