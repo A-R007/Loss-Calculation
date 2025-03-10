@@ -150,3 +150,89 @@ The final probability of the thermostat turning on is **0.8808** (or **88.08%**)
 
 **Justification:** The sigmoid activation function converts the linear combination of the input temperature, weight, and bias into a probability value between 0 and 1. In this case, given the input temperature of 2°C, the learned weight of 0.5, and the bias of 1, the model predicts a high probability (**88.08%**) of the thermostat turning on.
 
+# CH-1 QN5
+
+## Backpropagation Calculation for Hidden and Output Layers
+
+### Given Data:
+- **Inputs:**
+  - \( x_1 = 0.10 \), \( x_2 = 0.35 \)
+- **Weights:**
+  - Input to Hidden Layer:
+    - \( w_1 = 0.15 \), \( w_2 = 0.25 \) (for \( H1 \))
+    - \( w_3 = 0.30 \), \( w_4 = 0.35 \) (for \( H2 \))
+  - Hidden to Output Layer:
+    - \( w_5 = 0.40 \), \( w_6 = 0.45 \) (for \( y_1 \))
+    - \( w_7 = 0.50 \), \( w_8 = 0.55 \) (for \( y_2 \))
+- **Bias Values:**
+  - Hidden Layer: \( b_1 = 0.60 \), \( b_2 = 0.60 \)
+- **Target Values:**
+  - \( T_1 = 0.01 \), \( T_2 = 0.99 \)
+
+### 1. Compute Hidden Layer Activations
+
+For each hidden unit:
+
+#### Hidden Neuron \( H1 \):
+
+$$ z_{H1} = (x_1 \times w_1) + (x_2 \times w_2) + b_1 $$
+
+$$ z_{H1} = (0.10 \times 0.15) + (0.35 \times 0.25) + 0.60 $$
+
+$$ z_{H1} = 0.015 + 0.0875 + 0.60 = 0.7025 $$
+
+Applying the sigmoid activation function:
+
+$$ H1 = \sigma(0.7025) = \frac{1}{1 + e^{-0.7025}} \approx 0.6687 $$
+
+#### Hidden Neuron \( H2 \):
+
+$$ z_{H2} = (x_1 \times w_3) + (x_2 \times w_4) + b_2 $$
+
+$$ z_{H2} = (0.10 \times 0.30) + (0.35 \times 0.35) + 0.60 $$
+
+$$ z_{H2} = 0.03 + 0.1225 + 0.60 = 0.7525 $$
+
+Applying the sigmoid activation function:
+
+$$ H2 = \sigma(0.7525) = \frac{1}{1 + e^{-0.7525}} \approx 0.6797 $$
+
+### 2. Compute Output Layer Activations
+
+For each output neuron:
+
+#### Output Neuron \( y_1 \):
+
+$$ z_{y1} = (H1 \times w_5) + (H2 \times w_6) $$
+
+$$ z_{y1} = (0.6687 \times 0.40) + (0.6797 \times 0.45) $$
+
+$$ z_{y1} = 0.2675 + 0.3059 = 0.5734 $$
+
+Applying the sigmoid activation function:
+
+$$ y_1 = \sigma(0.5734) = \frac{1}{1 + e^{-0.5734}} \approx 0.6395 $$
+
+#### Output Neuron \( y_2 \):
+
+$$ z_{y2} = (H1 \times w_7) + (H2 \times w_8) $$
+
+$$ z_{y2} = (0.6687 \times 0.50) + (0.6797 \times 0.55) $$
+
+$$ z_{y2} = 0.3343 + 0.3738 = 0.7081 $$
+
+Applying the sigmoid activation function:
+
+$$ y_2 = \sigma(0.7081) = \frac{1}{1 + e^{-0.7081}} \approx 0.6699 $$
+
+### 3. Final Values
+- **Hidden Layer Outputs:**
+  - \( H1 \approx 0.6687 \)
+  - \( H2 \approx 0.6797 \)
+- **Output Layer Predictions:**
+  - \( y_1 \approx 0.6395 \)
+  - \( y_2 \approx 0.6699 \)
+
+These values can now be used for error calculation and backpropagation adjustments.
+
+
