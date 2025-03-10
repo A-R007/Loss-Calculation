@@ -1,25 +1,19 @@
-# Loss-Calculation
+# CH-1 QN1
 
-# Weight Update Using Backpropagation
+## Given Data:
+- **Inputs:** \( x = [1,2] \)
+- **Weights:** \( W = [0.4, -0.2] \)
+- **Bias:** \( b = 0.1 \)
+- **Predicted Output:** \( y' = 0.6 \)
+- **True Output:** \( y = 0.8 \)
+- **Learning Rate:** \( \eta = 0.1 \)
+- **Loss Function:** Mean Squared Error (MSE)
+- **Derivative of Activation Function:** \( y'(1 - y') = 0.24 \)
 
-This README explains how to update the weights of a single neuron after one step of backpropagation.
-
-## Given Data
-- **Inputs**: \( x = [1,2] \)
-- **Initial Weights**: \( W = [0.4, -0.2] \)
-- **Bias**: \( b = 0.1 \)
-- **Predicted Output**: \( y' = 0.6 \)
-- **True Output**: \( y = 0.8 \)
-- **Learning Rate**: \( \eta = 0.1 \)
-- **Loss Function**: Mean Squared Error (MSE)
-- **Derivative of Activation Function**: \( y'(1 - y') = 0.24 \)
-
----
-
-## Step-by-Step Calculation
+## Steps to Compute Updated Weights
 
 ### 1. Error Calculation
-The error is computed as:
+The error is the difference between the true output and the predicted output:
 \[
 \text{Error} = y - y' = 0.8 - 0.6 = 0.2
 \]
@@ -46,12 +40,12 @@ Since:
 
 Now, calculating for each weight:
 
-- **For \( W_1 \) (corresponding to \( x_1 = 1 \))**:
+- **For** \( W_1 \) **(corresponding to** \( x_1 = 1 \) **)**:
 \[
 \frac{\partial L}{\partial W_1} = (-0.2) \times (0.24) \times (1) = -0.048
 \]
 
-- **For \( W_2 \) (corresponding to \( x_2 = 2 \))**:
+- **For** \( W_2 \) **(corresponding to** \( x_2 = 2 \) **)**:
 \[
 \frac{\partial L}{\partial W_2} = (-0.2) \times (0.24) \times (2) = -0.096
 \]
@@ -62,31 +56,20 @@ Using the learning rate \( \eta = 0.1 \):
 W_i = W_i - \eta \times \frac{\partial L}{\partial W_i}
 \]
 
-Updating each weight:
+Updated weights:
 
-- **Updated \( W_1 \)**:
+- **For** \( W_1 \):
 \[
 W_1 = 0.4 - 0.1 \times (-0.048) = 0.4 + 0.0048 = 0.4048
 \]
 
-- **Updated \( W_2 \)**:
+- **For** \( W_2 \):
 \[
 W_2 = -0.2 - 0.1 \times (-0.096) = -0.2 + 0.0096 = -0.1904
 \]
 
-### 5. Final Answer - Updated Weights
+### 5. Final Updated Weights
+After one backpropagation step, the updated weights are:
 \[
 W = [0.4048, -0.1904]
 \]
-
-These are the updated weights after one backpropagation step.
-
----
-
-## Notes
-- The bias was not updated in this step, but a similar process can be applied.
-- The learning rate (\( \eta \)) controls how much the weights change in each step.
-- This process is repeated for multiple iterations to train the neuron effectively.
-
-If you have any questions, feel free to ask! 🚀
-
